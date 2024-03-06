@@ -385,6 +385,26 @@ header .container{
 }
 }
 
+@media screen and (max-width: 408px){
+    .hero{
+        padding-top: 100px;
+    
+    }
+}
+
+@media screen and (max-width: 386px){
+    .hero{
+        padding-top: 130px;
+    
+    }
+}
+
+@media screen and (max-width: 356px){
+    .hero{
+        padding-top: 140px;
+    
+    }
+}
 
 
 
