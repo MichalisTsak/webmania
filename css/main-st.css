@@ -332,10 +332,10 @@ header .container{
 .hero_img{
     text-align: right;
 }
-@media screen and (max-width: 1600px){
+@media screen and (max-width: 1505px){
     .home__scroll{
         padding-top: 0px;
-        margin-top:0px;
+        margin-top: 0px;
     }
 }
 @media screen and (max-width: 1132px){
