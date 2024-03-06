@@ -385,6 +385,13 @@ header .container{
 }
 }
 
+
+@media screen and (max-width: 415px){
+    .hero{
+        padding-top: 150px;
+    }
+}
+
 @media screen and (max-width: 408px){
     .hero{
         padding-top: 100px;
@@ -854,17 +861,127 @@ header .container{
     }
 }
 
-@media screen and (max-width:576px) {
+
+@media screen and (max-width: 870px){
+    .portfolio_info p{
+        font-size: 15px;
+        margin-left: 0px;
+    }
+}
+
+@media screen and (max-width: 830px){
+    .portfolio_info p{
+        font-size: 14px;
+        margin-left: 0px;
+    }
+}
+
+@media screen and (max-width: 775px){
+    .portfolio_info p{
+        font-size: 13px;
+        margin-left: 0px;
+    }
+    .portfolio_info h4{
+        font-size: 18px;
+        margin-left: 0px;
+    }
+    
+}
+
+
+@media screen and (max-width: 684px){
+    .portfolio_info p{
+        font-size: 12px;
+    }
+    .portfolio_info h4{
+        font-size: 16px;
+    }
+    
+}
+
+
+
+@media screen and (max-width: 670px){
+    .portfolio_info p{
+        font-size: 15px;
+        margin-left: 5px;
+    }
+}
+
+
+
+@media screen and (max-width: 635px){
+    .portfolio_info p{
+        font-size: 14px
+    }
+}
+@media screen and (max-width: 606px){
+    .portfolio_info p{
+        font-size: 13px
+    }
+}
+
+
+
+@media screen and (max-width: 576px) {
     .portfolio_wrap-container{
         grid-template-columns: 1fr;
     }
     .portfolio_filters li{
         font-size: 16px;
     }
+    .portfolio_info h4{
+        font-size: 25px;
+    }
+    
+    .portfolio_info p{
+        font-size: 17px;
+    }
+}
+
+
+@media screen and (max-width: 463px){
+    .portfolio_info p{
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 414px){
     .portfolio_info p{
         font-size: 14px;
     }
 }
+
+@media screen and (max-width: 389px){
+    .portfolio_info p{
+        font-size: 13px;
+    }
+    .portfolio_info h4{
+        font-size: 18px;
+    }
+    
+}
+
+@media screen and (max-width: 366px){
+    .portfolio_info h4{
+        font-size: 17px;
+    }
+    .portfolio_info p{
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 338px){
+    .portfolio_info p{
+        font-size: 11px;
+        
+    }
+    .portfolio_info h4{
+        font-size: 17px;
+    }
+    
+}
+
 
 
 
