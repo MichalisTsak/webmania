@@ -41,7 +41,7 @@ if(typed){
         typeSpeed: 90,
         backSpeed: 60,
         loop: true,
-        backDelay: 2500
+        backDelay: 2200
     });
 }
 
