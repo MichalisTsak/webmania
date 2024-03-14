@@ -22,6 +22,22 @@
     <a-entity gltf-model="#house" scale="1.3 1.3 1.3" position="0 0 0"></a-entity>
     <a-sky color="#ECECEC"></a-sky>
 
+    <!-- Arrow buttons for movement -->
+    <a-entity position="-3 1.6 -4">
+        <a-entity id="upButton" geometry="primitive: plane; width: 1; height: 1" material="color: blue" cursor-listener>
+            <a-entity text="value: &#9650;; align: center; color: white; width: 2"></a-entity>
+        </a-entity>
+        <a-entity id="leftButton" geometry="primitive: plane; width: 1; height: 1" material="color: blue" cursor-listener position="-1.5 0 0">
+            <a-entity text="value: &#9664;; align: center; color: white; width: 2"></a-entity>
+        </a-entity>
+        <a-entity id="rightButton" geometry="primitive: plane; width: 1; height: 1" material="color: blue" cursor-listener position="1.5 0 0">
+            <a-entity text="value: &#9654;; align: center; color: white; width: 2"></a-entity>
+        </a-entity>
+        <a-entity id="downButton" geometry="primitive: plane; width: 1; height: 1" material="color: blue" cursor-listener position="0 -1.5 0">
+            <a-entity text="value: &#9660;; align: center; color: white; width: 2"></a-entity>
+        </a-entity>
+    </a-entity>
+
     <!-- Restrict movement on mobile devices -->
     <a-entity id="mobileControls" position="0 0 0" visible="false">
         <a-plane color="transparent" height="10" width="10"></a-plane>
@@ -29,6 +45,29 @@
 </a-scene>
 
 <script>
+    AFRAME.registerComponent('cursor-listener', {
+        init: function () {
+            var el = this.el;
+            el.addEventListener('click', function () {
+                var id = el.getAttribute('id');
+                switch (id) {
+                    case 'upButton':
+                        // Move forward logic here
+                        break;
+                    case 'leftButton':
+                        // Move left logic here
+                        break;
+                    case 'rightButton':
+                        // Move right logic here
+                        break;
+                    case 'downButton':
+                        // Move backward logic here
+                        break;
+                }
+            });
+        }
+    });
+
     AFRAME.registerComponent('mobile-controls', {
         init: function () {
             if (AFRAME.utils.device.isMobile()) {
