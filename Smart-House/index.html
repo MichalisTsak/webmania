@@ -22,20 +22,26 @@
     <a-entity gltf-model="#house" scale="1.3 1.3 1.3" position="0 0 0"></a-entity>
     <a-sky color="#ECECEC"></a-sky>
 
-    <!-- Arrow buttons for movement -->
-    <a-entity position="-3 1.6 -4">
-        <a-entity id="upButton" geometry="primitive: plane; width: 1; height: 1" material="color: blue" cursor-listener>
-            <a-entity text="value: &#9650;; align: center; color: white; width: 2"></a-entity>
-        </a-entity>
-        <a-entity id="leftButton" geometry="primitive: plane; width: 1; height: 1" material="color: blue" cursor-listener position="-1.5 0 0">
-            <a-entity text="value: &#9664;; align: center; color: white; width: 2"></a-entity>
-        </a-entity>
-        <a-entity id="rightButton" geometry="primitive: plane; width: 1; height: 1" material="color: blue" cursor-listener position="1.5 0 0">
-            <a-entity text="value: &#9654;; align: center; color: white; width: 2"></a-entity>
-        </a-entity>
-        <a-entity id="downButton" geometry="primitive: plane; width: 1; height: 1" material="color: blue" cursor-listener position="0 -1.5 0">
-            <a-entity text="value: &#9660;; align: center; color: white; width: 2"></a-entity>
-        </a-entity>
+    <!-- Movement Buttons -->
+    <a-entity position="-1.5 0 -2">
+        <a-circle color="#333" radius="0.2" position="0 0 0" 
+                  rotation="-90 0 0" onclick="move('forward')"></a-circle>
+        <a-text value="↑" color="#fff" align="center" position="0 0.03 0"></a-text>
+    </a-entity>
+    <a-entity position="-1.5 0 -3">
+        <a-circle color="#333" radius="0.2" position="0 0 0" 
+                  rotation="-90 90 0" onclick="move('right')"></a-circle>
+        <a-text value="→" color="#fff" align="center" position="0 0.03 0"></a-text>
+    </a-entity>
+    <a-entity position="-1.5 0 -1">
+        <a-circle color="#333" radius="0.2" position="0 0 0" 
+                  rotation="-90 -90 0" onclick="move('left')"></a-circle>
+        <a-text value="←" color="#fff" align="center" position="0 0.03 0"></a-text>
+    </a-entity>
+    <a-entity position="-2.5 0 -2">
+        <a-circle color="#333" radius="0.2" position="0 0 0" 
+                  rotation="-90 180 0" onclick="move('backward')"></a-circle>
+        <a-text value="↓" color="#fff" align="center" position="0 0.03 0"></a-text>
     </a-entity>
 
     <!-- Restrict movement on mobile devices -->
@@ -45,29 +51,6 @@
 </a-scene>
 
 <script>
-    AFRAME.registerComponent('cursor-listener', {
-        init: function () {
-            var el = this.el;
-            el.addEventListener('click', function () {
-                var id = el.getAttribute('id');
-                switch (id) {
-                    case 'upButton':
-                        // Move forward logic here
-                        break;
-                    case 'leftButton':
-                        // Move left logic here
-                        break;
-                    case 'rightButton':
-                        // Move right logic here
-                        break;
-                    case 'downButton':
-                        // Move backward logic here
-                        break;
-                }
-            });
-        }
-    });
-
     AFRAME.registerComponent('mobile-controls', {
         init: function () {
             if (AFRAME.utils.device.isMobile()) {
@@ -89,6 +72,39 @@
 
     // Attach the mobile-controls component to the camera rig
     document.getElementById('rig').setAttribute('mobile-controls', '');
+
+    // Function to handle movement based on arrow button clicked
+    function move(direction) {
+        var camera = document.getElementById('camera').object3D;
+        var speed = 0.1; // Adjust as needed
+        var rotation = camera.rotation.y; // Get current rotation
+        var x = 0;
+        var z = 0;
+
+        // Calculate movement direction based on camera rotation
+        switch(direction) {
+            case 'forward':
+                x = -Math.sin(rotation);
+                z = -Math.cos(rotation);
+                break;
+            case 'backward':
+                x = Math.sin(rotation);
+                z = Math.cos(rotation);
+                break;
+            case 'left':
+                x = -Math.cos(rotation);
+                z = Math.sin(rotation);
+                break;
+            case 'right':
+                x = Math.cos(rotation);
+                z = -Math.sin(rotation);
+                break;
+        }
+
+        // Apply movement
+        camera.position.x += x * speed;
+        camera.position.z += z * speed;
+    }
 </script>
 
 </body>
