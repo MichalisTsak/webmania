@@ -38,10 +38,10 @@ if(typed){
 
     new Typed('.typed', {
         strings: typed_strings,
-        typeSpeed: 80,
-        backSpeed: 40,
+        typeSpeed: 90,
+        backSpeed: 60,
         loop: true,
-        backDelay: 2000
+        backDelay: 2500
     });
 }
 

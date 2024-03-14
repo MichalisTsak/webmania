@@ -746,6 +746,9 @@ header .container{
       }
 }
 /* ============== Portfolio Section ==============  */
+.portfolio_container{
+
+}
 .portfolio_filters{
     display: flex;
     justify-content: center;
@@ -766,7 +769,7 @@ header .container{
 }
 .portfolio_wrap-container{
     display: grid;
-    gap: 2rem;
+    gap: 1rem;
     grid-template-columns: repeat(2, 1fr);
     position:relative;
 }
