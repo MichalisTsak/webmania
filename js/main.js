@@ -20,6 +20,14 @@ menuLinks.forEach((menuLink) => {
     });
 });
 
+document.addEventListener('click', (e) => {
+    if (navbarMenu.classList.contains('active') &&
+        !navbarMenu.contains(e.target) &&
+        !iconToggle.contains(e.target)) {
+        navbarMenu.classList.remove('active');
+    }
+});
+
 // Throttle helper
 function throttle(func, delay) {
     let lastCall = 0;
