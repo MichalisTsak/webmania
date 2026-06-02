@@ -10,7 +10,3 @@ An interactive 3D digital twin of a Smart House, built with [A-Frame](https://af
 |--------|---------|--------|
 | Move | `W A S D` or Arrow keys | On-screen joystick |
 | Look around | Click + drag mouse | Touch drag |
-
-## Live demo
-
-[View the Smart House →](https://michalistsak.github.io/Smart-House/)
