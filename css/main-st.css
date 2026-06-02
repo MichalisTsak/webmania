@@ -635,6 +635,22 @@ header .container{
         grid-template-columns: repeat(2, 1fr);
       }
 }
+/* Two-column grid for Certificates tab */
+#page-4.active {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 20px;
+    align-items: start;
+}
+#page-4 .page_heading {
+    grid-column: 1 / -1;
+}
+@media screen and (max-width: 768px) {
+    #page-4.active {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* ============== Portfolio Section ==============  */
 .portfolio_container {}
 
