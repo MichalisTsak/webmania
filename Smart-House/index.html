@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart House Viewer</title>
-    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
-    <script src="https://rawgit.com/Ctrl-Alt-Zen/aframe-mobile-controls/master/components/twoway-motion/twoway-motion.js"></script>
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Ctrl-Alt-Zen/aframe-mobile-controls@master/components/twoway-motion/twoway-motion.js"></script>
 </head>
 <body>
 
@@ -14,10 +14,10 @@
 
 
 
-<a-scene>
+<a-scene gltf-model="dracoDecoderPath: https://www.gstatic.com/draco/versioned/decoders/1.5.6/">
   <a-camera twoway-motion="speed: 5"></a-camera>
     <a-assets>
-        <a-asset-item id="house" response-type="arraybuffer" src="https://cdn.glitch.me/5ed68eaf-9ace-424a-a1fe-6ccb6f8169bc/model.glb?v=1669310826951"></a-asset-item>
+        <a-asset-item id="house" response-type="arraybuffer" src="model.glb"></a-asset-item>
     </a-assets>
 
     <a-entity gltf-model="#house" scale="1.3 1.3 1.3" position="0 0 0"></a-entity>
