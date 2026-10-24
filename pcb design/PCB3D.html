@@ -1,16 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <title>&lt;model-viewer&gt; template</title>
+  <title>SMPS Board — 3D View</title>
   <meta charset="utf-8">
-  <meta name="description" content="&lt;model-viewer&gt; template">
+  <meta name="description" content="3D view of the SMPS board layout, designed in Altium">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="../svg/Color%20logo%20-%20no%20background.svg" type="image/svg+xml">
   <link type="text/css" href="./css/styles.css" rel="stylesheet"/>
 </head>
 <body>
+  <div class="viewer-bar">
+    <a href="../#portfolio">← Portfolio</a>
+    <h1>SMPS Board</h1>
+    <p>Drag to rotate · scroll or pinch to zoom</p>
+  </div>
   <!-- <model-viewer> HTML element -->
-  <model-viewer src="PCB1.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls poster="poster.webp" shadow-intensity="1.52" data-dashlane-shadowhost="true" data-dashlane-observed="true" environment-image="aircraft_workshop_01_1k.hdr" shadow-softness="1" tone-mapping="commerce" exposure="0.62">
+  <model-viewer src="PCB1.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls poster="poster.webp" shadow-intensity="1.52" environment-image="aircraft_workshop_01_1k.hdr" shadow-softness="1" tone-mapping="commerce" exposure="0.62">
     <div class="progress-bar hide" slot="progress-bar">
         <div class="update-bar"></div>
     </div>

@@ -12,18 +12,18 @@ The course, titled *Smart House Virtualization* (3 ECTS), combined a physical we
 
 ## How to navigate
 
-> **The house is behind you when you first load the page — turn around!**
+You start on the terrace, facing the glass front of the house.
 
 | Action | Desktop | Mobile |
 |--------|---------|--------|
-| Move | `W A S D` or Arrow keys | On-screen joystick |
+| Move | `W A S D` or Arrow keys | Hold a finger on the screen to walk forward |
 | Look around | Click + drag mouse | Touch drag |
 
 ## Built with
 
 - [A-Frame](https://aframe.io/) — WebXR framework
-- [aframe-mobile-controls](https://github.com/Ctrl-Alt-Zen/aframe-mobile-controls) — on-screen joystick for mobile
+- [aframe-mobile-controls](https://github.com/Ctrl-Alt-Zen/aframe-mobile-controls) — hold-to-walk movement on mobile
 
 ## Live demo
 
-[View the Smart House →](https://michalistsak.github.io/Smart-House/)
+[View the Smart House →](https://michalistsak.github.io/webmania/Smart-House/)

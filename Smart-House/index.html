@@ -3,26 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart House Viewer</title>
+    <title>Smart House — 3D Walkthrough</title>
+    <link rel="icon" href="../svg/Color%20logo%20-%20no%20background.svg" type="image/svg+xml">
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/Ctrl-Alt-Zen/aframe-mobile-controls@master/components/twoway-motion/twoway-motion.js"></script>
+    <!-- pinned to a commit: @master could change under us -->
+    <script src="https://cdn.jsdelivr.net/gh/Ctrl-Alt-Zen/aframe-mobile-controls@2b2695cdd0f65aad2738002b73171a92dac89642/components/twoway-motion/twoway-motion.js"></script>
+    <style>
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            column-gap: 16px;
+            padding: 10px 16px;
+            font: 14px/1.4 system-ui, -apple-system, 'Segoe UI', sans-serif;
+            color: #222;
+            background: rgba(255, 255, 255, 0.88);
+            pointer-events: none;
+        }
+        #overlay a {
+            pointer-events: auto;
+            color: #ff7b00;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        #overlay h1 {
+            margin: 0;
+            font-size: 16px;
+        }
+        #overlay p {
+            margin: 0;
+            color: #555;
+        }
+        #loading {
+            position: fixed;
+            inset: 0;
+            z-index: 9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font: 15px system-ui, -apple-system, 'Segoe UI', sans-serif;
+            color: #555;
+            pointer-events: none;
+        }
+        #loading.done {
+            display: none;
+        }
+        .touch-only {
+            display: none;
+        }
+        @media (hover: none) {
+            .touch-only { display: inline; }
+            .mouse-only { display: none; }
+        }
+    </style>
 </head>
 <body>
 
-<p>WELCOME TO OUR SMART HOUSE!</p>
+<div id="overlay">
+    <a href="../#portfolio">← Portfolio</a>
+    <h1>Smart House</h1>
+    <p>
+        <span class="mouse-only">W A S D or arrow keys to walk · drag to look around</span>
+        <span class="touch-only">Drag to look around · hold a finger on the screen to walk</span>
+    </p>
+</div>
+<div id="loading">Loading 3D model… <span id="progress"></span></div>
 
-
-
-
-<a-scene gltf-model="dracoDecoderPath: https://www.gstatic.com/draco/versioned/decoders/1.5.6/">
-  <a-camera twoway-motion="speed: 5"></a-camera>
+<a-scene loading-screen="enabled: false">
     <a-assets>
         <a-asset-item id="house" response-type="arraybuffer" src="model.glb"></a-asset-item>
     </a-assets>
 
-    <a-entity gltf-model="#house" scale="1.3 1.3 1.3" position="0 0 0"></a-entity>
+    <!-- Start on the terrace, facing the glass front of the house -->
+    <a-entity position="9.2 0 0.5" rotation="0 180 0">
+        <a-camera twoway-motion="speed: 5"></a-camera>
+    </a-entity>
+
+    <a-entity id="model" gltf-model="#house" scale="1.3 1.3 1.3" position="0 0 0"></a-entity>
     <a-sky color="#ECECEC"></a-sky>
 </a-scene>
+
+<script>
+    const loading = document.getElementById('loading');
+    const progress = document.getElementById('progress');
+
+    document.getElementById('house').addEventListener('progress', (e) => {
+        const { loadedBytes, totalBytes } = e.detail;
+        progress.textContent = totalBytes
+            ? Math.round(100 * loadedBytes / totalBytes) + '%'
+            : (loadedBytes / 1e6).toFixed(1) + ' MB';
+    });
+
+    const model = document.getElementById('model');
+    model.addEventListener('model-loaded', () => loading.classList.add('done'));
+    model.addEventListener('model-error', () => {
+        loading.textContent = 'The 3D model could not be loaded. Please refresh the page.';
+    });
+</script>
 
 </body>
 </html>

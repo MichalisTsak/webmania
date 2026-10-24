@@ -814,6 +814,30 @@ header .container{
     }
 }
 
+/* Keyboard users reach the links by tabbing into the card */
+.portfolio_wrap:focus-within .portfolio_info {
+    transform: translateY(0);
+}
+
+/* Touch screens have no hover, so keep title and links visible as a bar */
+@media (hover: none) {
+    .portfolio_info {
+        top: auto;
+        bottom: 0;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 6px 16px;
+        transform: none;
+    }
+    .portfolio_info h4 {
+        font-size: 18px;
+    }
+    .portfolio_info p {
+        display: none;
+    }
+}
+
 /* ============== Footer ============== */
 .footer_bg {
     background-color: var(--main-color);
